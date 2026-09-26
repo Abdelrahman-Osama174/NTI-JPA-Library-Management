@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "customers")
 public class Customer extends LibraryUser {
-
     private String membershipNumber;
 
     public Customer() {}

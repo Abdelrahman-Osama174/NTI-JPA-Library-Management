@@ -15,6 +15,7 @@ public class Publisher {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 
     public Publisher() {}

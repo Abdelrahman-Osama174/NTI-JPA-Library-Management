@@ -15,6 +15,7 @@ public class Category {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     private Set<Book> books = new HashSet<>();
 
     public Category() {
