@@ -1,6 +1,6 @@
-# Library Management System — JPA Day 2
+# NTI JPA Library Management
 
-A hands-on JPA project that covers entity relationships, fetching strategies, cascading, inheritance, JPQL, and the Criteria API — all backed by an H2 in-memory database.
+A hands-on JPA project built as part of the **NTI Backend Training Program**, covering entity relationships, fetching strategies, cascading, inheritance, JPQL, and the Criteria API — all backed by an H2 in-memory database.
 
 ---
 
