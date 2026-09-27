@@ -1,9 +1,15 @@
 package com.abdelrahman.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "library_users")
+@Setter
+@Getter
+@NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "user_type")
 public abstract class LibraryUser {
@@ -14,27 +20,7 @@ public abstract class LibraryUser {
     @Column(nullable = false)
     private String name;
 
-    protected LibraryUser() {
-    }
-
     protected LibraryUser(String name) {
-        this.name = name;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 

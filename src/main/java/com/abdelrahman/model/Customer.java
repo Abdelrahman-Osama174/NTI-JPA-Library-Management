@@ -1,25 +1,21 @@
 package com.abdelrahman.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "customers")
+@Setter
+@Getter
+@NoArgsConstructor
 //@DiscriminatorValue("CUSTOMER")
 public class Customer extends LibraryUser {
     private String membershipNumber;
 
-    public Customer() {}
-
     public Customer(String name, String membershipNumber) {
         super(name);
-        this.membershipNumber = membershipNumber;
-    }
-
-    public String getMembershipNumber() {
-        return membershipNumber;
-    }
-
-    public void setMembershipNumber(String membershipNumber) {
         this.membershipNumber = membershipNumber;
     }
 

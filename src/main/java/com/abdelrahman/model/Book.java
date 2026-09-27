@@ -1,12 +1,18 @@
 package com.abdelrahman.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "books")
+@Setter
+@Getter
+@NoArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,13 +38,6 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    public Book() {
-    }
-
-    public Book(String title, int publishedYear) {
-        this.title = title;
-        this.publishedYear = publishedYear;
-    }
 
     public Book(String title, int publishedYear, Publisher publisher) {
         this.title = title;
@@ -54,50 +53,6 @@ public class Book {
     public void removeCategory(Category category) {
         categories.remove(category);
         category.getBooks().remove(this);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public int getPublishedYear() {
-        return publishedYear;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public Set<Category> getCategories() {
-        return categories;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setPublishedYear(int publishedYear) {
-        this.publishedYear = publishedYear;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
-
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
     }
 
     @Override

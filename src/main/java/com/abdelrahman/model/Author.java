@@ -1,12 +1,18 @@
 package com.abdelrahman.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "authors")
+@Setter
+@Getter
+@NoArgsConstructor
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +24,6 @@ public class Author {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 
-    public Author() {}
 
     public Author(String name) {
         this.name = name;
@@ -33,13 +38,6 @@ public class Author {
         books.remove(book);
         book.setAuthor(null);
     }
-
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public List<Book> getBooks() { return books; }
-
-    public void setName(String name) { this.name = name; }
-    public void setBooks(List<Book> books) { this.books = books; }
 
     @Override
     public String toString() {
