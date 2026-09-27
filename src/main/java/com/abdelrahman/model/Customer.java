@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "customers")
+//@DiscriminatorValue("CUSTOMER")
 public class Customer extends LibraryUser {
     private String membershipNumber;
 

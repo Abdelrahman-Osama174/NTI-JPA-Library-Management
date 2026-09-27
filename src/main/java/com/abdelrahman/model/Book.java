@@ -40,6 +40,12 @@ public class Book {
         this.publishedYear = publishedYear;
     }
 
+    public Book(String title, int publishedYear, Publisher publisher) {
+        this.title = title;
+        this.publishedYear = publishedYear;
+        this.publisher = publisher;
+    }
+
     public void addCategory(Category category) {
         categories.add(category);
         category.getBooks().add(this);

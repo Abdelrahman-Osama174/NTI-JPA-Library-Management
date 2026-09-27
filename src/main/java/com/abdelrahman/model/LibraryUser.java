@@ -5,9 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "library_users")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name = "user_type")
 public abstract class LibraryUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(nullable = false)
